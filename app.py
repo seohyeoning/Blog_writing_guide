@@ -1,8 +1,3 @@
-# streamlit run C:/Users/user/Desktop/psh/project/Blog_guide/app.py
-# Ctrl + c 
-#         당신은 한국의 네이버 블로그에서 활동하는 맛집 블로거입니다. 아래 제공된 정보를 바탕으로, 네이버 블로그 스타일에 맞춰 자연스럽고 상세한 맛집 리뷰를 작성해주세요. 글은 친근하고 생동감 있는 어조로 작성하며, 독자가 실제로 방문한 듯한 느낌을 받을 수 있도록 노력해주세요. 각 섹션은 소제목을 사용하여 구성하고, 사진이 포함될 위치를 명시해주세요. 특히, 표현이 과장되거나 어색하지 않도록 주의하고, 일반적으로 사용되는 표현을 사용해주세요.
-
-
 import streamlit as st
 import openai
 import os
@@ -32,35 +27,6 @@ with st.form("blog_form"):
     visit_tips = st.text_area("방문 팁", placeholder="예: 주차 공간이 협소하니 대중교통을 이용하세요.")
     submitted = st.form_submit_button("블로그 글 생성")
     
-# # "메뉴판 불러오기" 버튼
-# if st.button("메뉴판 불러오기"):
-#     if not restaurant_name or not location:
-#         st.error("식당 이름과 위치를 입력해주세요!")
-#     else:
-#         with st.spinner("메뉴판을 검색 중입니다..."):
-#             try:
-#                 # 네이버 검색 URL 생성
-#                 search_query = f"{restaurant_name} {location} 메뉴판"
-#                 search_url = f"https://search.naver.com/search.naver?query={search_query}"
-
-#                 # 네이버 검색 결과 가져오기
-#                 headers = {
-#                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-#                 }
-#                 response = requests.get(search_url, headers=headers)
-#                 soup = BeautifulSoup(response.text, "html.parser")
-
-#                 # 이미지 URL 추출
-#                 image_tags = soup.select("img")
-#                 menu_images = [img["src"] for img in image_tags if "menu" in img["src"]]
-
-#                 if menu_images:
-#                     st.image(menu_images[0], caption="메뉴판 이미지")
-#                 else:
-#                     st.warning("메뉴판 이미지를 찾을 수 없습니다.")
-
-#             except Exception as e:
-#                 st.error(f"메뉴판을 불러오는 중 오류가 발생했습니다: {e}")
 
 # 사용자 입력 처리
 if submitted:
